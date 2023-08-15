@@ -1,9 +1,10 @@
 import Sidebar from '@/components/Sidebar';
 import '../styles/globals.css';
-import { SessionProvider } from 'next-auth/react';
+import { SessionProvider } from '@/components/SessionProvider';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
-import { getServerSession } from 'next-auth/next';
+import { getServerSession } from 'next-auth';
 import Login from '@/components/Login';
+import ClientProvider from '@/components/ClientProvider';
 
 export const metadata = {
   title: 'ChatGPT clone',
@@ -20,23 +21,23 @@ export default async function RootLayout({
     <html>
       <head />
       <body>
-        <SessionProvider session={session}>
-          {!session ?(
+       <SessionProvider session={session}>
+          {!session ? (
             <Login  />
-          ):(
+          ):( 
             <div className='flex'>
             <div className='bg-[#202121] max-w-xs h-screen 
             overflow-y-auto md:min-w-[20rem]'>
-            
-            {/* Sidebar */}
-            <Sidebar />
+              {/* Sidebar */}
+              <Sidebar />
             </div>
             
-            {/* ClientProvider - Notification */}
-            <div className="bg-[#343541] flex-1">{children}</div>
+              <ClientProvider />
+
+              <div className="bg-[#343541] flex-1">{children}</div>
             </div> 
           )}
-        </SessionProvider>
+        </SessionProvider> 
       </body>
     </html>
 
