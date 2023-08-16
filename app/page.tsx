@@ -28,7 +28,7 @@ function HomePage() {
 
                 <div className='space-y-2'>
                     <p className='infoText'>Change the ChatGPT model to use</p>
-                    <p className='infoText'>Messages are stored in Firevase's Firestore</p>
+                    <p className='infoText'>Messages are stored in Firebase Firestore</p>
                     <p className='infoText'>Hot Toast notifications when ChatGPT is thinking!</p>
                 </div>
             </div>
